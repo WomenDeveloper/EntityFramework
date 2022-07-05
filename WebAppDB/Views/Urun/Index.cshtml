@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebAppDB.Models.Urun>
+
+<h2>Ürün Bilgileri</h2>
+<br />
+<a asp-action="Ekle" asp-contoller="Urun">Ürün Ekle</a>
+<br />
+<table class="table">
+     @* <tr>
+          <th>UrunID</th>
+          <th>UrunAdi</th>
+          <th>Renk</th>
+          <th>Fiyat</th>
+          <th>KategoriID</th>
+          <th>UrunResmi</th>
+      </tr>*@
+       <tr>
+          <th>@Html.DisplayNameFor(m=>m.UrunID)</th>
+          <th>@Html.DisplayNameFor(m=>m.UrunAdi)</th>
+          <th>@Html.DisplayNameFor(m=>m.Renk)</th>
+          <th>@Html.DisplayNameFor(m=>m.Fiyat)</th>
+          <th>@Html.DisplayNameFor(m=>m.KategoriID)</th>
+          <th>@Html.DisplayNameFor(m=>m.UrunResmi)</th>
+          <th></th>
+      </tr>
+    @foreach(Urun urun in Model)
+    {
+      <tr>
+          <td>@urun.UrunID</td>
+          <td>@urun.UrunAdi</td>
+          <td>@urun.Renk</td>
+          <td>@urun.Fiyat</td>
+          <td>@urun.Kategori.KategoriAdi</td>
+          @*<td>@urun.UrunResmi</td>*@
+          <td><img src="~/Resimler/@urun.UrunResmi" width="100px" height="75px" /> </td>
+          @*<td>@Html.ActionLink("Seç","Sec","Urun",new {id=@urun.UrunID})</td>*@
+          <td><a asp-action="Sec" asp-controller="Urun" asp-route-id=@urun.UrunID>Select</a></td>
+      </tr>
+    }
+</table>

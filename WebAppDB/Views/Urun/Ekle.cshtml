@@ -1,0 +1,67 @@
+﻿@model WebAppDB.Models.Urun
+
+<script>
+   function kontrolEt(){
+ 
+       var ad = document.getElementById("UrunAdi");
+
+       if(ad.value=="")
+       {
+           ad.style.border="2px solid red";
+
+         return false;
+       }
+         else
+        return true;
+   }
+   function tumunuKontrolEt(){
+      var kontroller = document.getElementsByTagName("input");
+      var kontrol=true;
+     
+      for(let i=0;i<kontroller.length;i++)
+      {
+          if(kontroller[i].value == "")
+          {
+             kontrol=false;
+             kontroller[i].style.border="2px solid orange";
+          }
+          else
+            kontroller[i].style.border="";
+      }
+      return kontrol;
+   }
+
+</script>
+
+<form asp-action="Ekle" asp-controller="Urun" enctype="multipart/form-data">
+<table>
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.UrunAdi)</td>
+        @*<td><input type="text" asp-for=UrunAdi required /></td>*@
+         <td><input type="text" asp-for=UrunAdi />@Html.ValidationMessageFor(m=>m.UrunAdi) </td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.Renk)</td>
+        <td><input type="text" asp-for=Renk /></td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.KategoriID)</td>
+        <td><select asp-for=KategoriID  asp-items=@ViewBag.Kategoriler></select></td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.Fiyat)</td>
+        <td><input type="text" asp-for=Fiyat /></td>
+    </tr>
+     <tr>
+        <td>@Html.DisplayNameFor(m=>m.UrunResmi)</td>
+        <td><input type="file" name="dosya" /></td>
+    </tr>
+     <tr>
+        <td></td>
+       @* <td><input type="submit" value="Kaydet"  onclick="return tumunuKontrolEt();"/></td>*@
+        <td><input type="submit" value="Kaydet" /></td>
+    </tr>
+</table>
+</form>
+
+@Html.ValidationSummary()

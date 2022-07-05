@@ -1,0 +1,72 @@
+﻿ORM =>Object-Relation Mapping
+
+Data != Object
+
+RDBMS =>Relational Database Management Systems
+
+LINQ
+  LINQ to SQL => Model First, Database First(Sql Server)
+
+  LINQ to SQL => EF (Diger Vt desteklendi... )
+  EF => DBF, MF
+
+  EF 4.0 => Code First (Model First, Database first)
+
+Entity Framework Core
+Primary KEY olusturma
+1- Model içerisinde sadece ID,Id alan varsa (PK)
+2- Model içerisinde [ModelName]ID varsa (PK)
+3- Model içerisinde Herhangi bir sutuna [Key] attribute eklenerek...
+
+
+
+char(10)        => "Ali" + 7 bosluk
+nchar(10)       => maliyet 2 katın çıkar "Ali" => 20 byte 14'u bosluk...
+varchar(10)     => "Ali" 3 karakter kullanılır, gerisi sisteme bırakılır...
+nvarchar(10)    => "Ali" 6 byte
+........(MAX)   => 8000 karakter , n...=> 4000
+
+
+MVC CORE - EF CORE ile DB Uygulamasi(Model First)
+1-Modelleri Belirle
+2-Yonetici Sınifi olustur
+  Nuget üzerinden yükle...
+  Microsoft.EntityFrameworkCore
+  Microsoft.EntityFrameworkCore.SqlServer
+
+3-appstettings.json => connectionstring'i yaz...
+4-Program.cs => ilgili ayarları ekle...
+   builder.AddDbContext<>...
+5-Controller olustur
+6-Ctontroller için ctor Injetion kullanarak ilgili sınıfı ekle...
+7-Database Olustur/Sil...(***)
+
+8-Yonetici sınıf içerisine tablolalara karşılık gelen property leri oluştur...
+
+9-Data Annotations kullanarak Model için veri tiplerini belirle...
+
+10-Navigation Property leri belirle
+   *Tablolar arası ilişkileri belirlemek için kullanılır...
+
+   *FK oluşturmaya yarar...
+   *Join işlemlerinde kullanılır...
+
+Dosya Yükleme İşlemleri
+1-form içinde; input type="file"
+2-form içinde; enctype="multipart/form-data"
+3-[HttpPost] =>Aksiyonunda paramete olarak IFormFile
+4-HTML tarafında input'a verilen isimle Parametredeki isim aynı olmalı... 
+
+Validation(Doğrulama) İşlemleri
+1-HTML5 Required
+2-Javascript
+3-MVC Validation islemleri
+  *ModelState.IsValid() => Aksiyon
+  *View =>Validation Summary()
+
+
+1-2 İstemci(client)
+3   Sunucu(server)
+
+
+
